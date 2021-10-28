@@ -1,0 +1,14 @@
+{% extends "phonebook/layout.html" %}
+
+{% block body%}
+
+<form action = "{% url 'phonebook:add'%}" method = "POST">
+    {% csrf_token %}
+
+    {{ form }}
+    <input type="submit">
+</form>
+
+<a href="{% url 'phonebook:index' %}">Return to Phonebook!</a>
+
+{% endblock %}

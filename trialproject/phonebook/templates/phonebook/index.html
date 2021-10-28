@@ -1,0 +1,21 @@
+{% extends "phonebook/layout.html" %}
+
+{% block body %}
+    <h1>Name List:</h1>
+    
+    <table>
+            <tr>
+                <td>Name:</td>
+            </tr>
+        {% for name in name %}
+            <tr>
+                <td>{{name}}</td><br>
+            </tr>
+    </table>
+        {% empty %}
+        No contacts.
+        {% endfor %}
+
+    <br>
+    <a href="{% url 'phonebook:add' %}">Add Names!</a>
+{% endblock %}

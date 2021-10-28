@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>
+            Tasks
+        </title>
+    </head>
+    <body>
+        <h1>Tasks:</h1>
+        <ul>
+            {% for tasks in tasks %}
+                <li>{{ tasks }}</li>
+<!-- if empty -->
+            {% empty %}
+                <li>No tasks</li>
+            
+            {% endfor %}
+        </ul>
+        <!-- Instead of stating "tasks/add", instead use 'Name' - link to url called 'add' -->
+        <a href="{% url 'tasks:add' %}">Add a new task!</a>
+    </body>
+</html>

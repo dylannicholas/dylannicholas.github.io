@@ -1,0 +1,19 @@
+{% extends "tasks/layout.html" %}
+
+{% block body %}
+<h1>Tasks:</h1>
+
+<!-- Include action to actually submit form - whenever there is submission of data that has the potential to change some state in the Application, use POST, does not include perimeters! (unlike GET) -->
+<!-- Also note of CSRF (Forms Security vulnerable to request forgery) - Add CSRF token through Django Middleware! -->
+
+    <form action = "{% url 'tasks:add'%}" method = "POST">
+        {% csrf_token %}
+
+<!-- Plug in Django-generated form from views.py here! -->
+        {{ form }}
+        <input type="submit">
+    </form>
+
+    <!-- Take note of name space collision! - go to urls.py for Tasks, include app_name called 'Tasks'-->
+    <a href="{% url 'tasks:index' %}">Return to Tasks!</a>
+{% endblock %}
